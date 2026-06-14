@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciar Minicursos</title>
+</head>
+
+<body>
+  <h1>Painel de Minicursos</h1>
+  <a href="/minicursos/criar">➕ Adicionar Novo Minicurso</a> | <a href="/">Voltar ao Início</a>
+  <br><br>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome do Curso</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for curso in minicursos %}
+      <tr>
+        <td>{{ curso.id }}</td>
+        <td>{{ curso.nome }}</td>
+        <td>
+          <a href="/minicursos/editar/{{ curso.id }}">Editar</a>
+          <form action="/minicursos/excluir" method="POST" style="display:inline;">
+            <input type="hidden" name="id" value="{{ curso.id }}">
+            <button type="submit" onclick="return confirm('Deseja mesmo excluir este curso?')">Excluir</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+
+</html>

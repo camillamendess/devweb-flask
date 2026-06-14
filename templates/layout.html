@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<title>Semana de Computação</title>
+<link rel="stylesheet"
+          href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+ <img src="{{ url_for('static', filename='images/logo.png') }}" width="90">
+ <h1>Semana de Computação 2026</h1>
+</header>
+
+<section>
+   {% block body %}
+   {% endblock %}
+</section>
+
+<footer>
+ <p>2026 Semana de Computação</p>
+ <p>Email: contato@evento.com</p>
+ <p>Desenvolvido por alunos do curso</p>
+</footer>
+
+</div>
+</body>
+</html>

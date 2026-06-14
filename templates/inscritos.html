@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<table border="1">
+
+    <tr>
+        <th>Nome</th>
+        <th>Minicurso</th>
+        <th>Ação</th>
+    </tr>
+
+    {% for id,nome,minicurso in inscritos %}
+    <tr>
+        <td>{{ nome }}</td>
+        <td>{{ minicurso }}</td>
+        <td>
+           <form action="excluir" method="post">
+             <input name="id" type="hidden" value='{{ id }}'>
+             <button type="submit">Excluir</button>
+           </form>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<a href="/">Voltar</a>
+
+{% endblock %}
