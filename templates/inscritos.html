@@ -2,29 +2,34 @@
 
 {% block body %}
 
-<table border="1">
+<h2>Lista de Alunos Inscritos</h2>
 
-    <tr>
-        <th>Nome</th>
-        <th>Minicurso</th>
-        <th>Ação</th>
-    </tr>
-
-    {% for id,nome,minicurso in inscritos %}
-    <tr>
-        <td>{{ nome }}</td>
-        <td>{{ minicurso }}</td>
-        <td>
-           <form action="excluir" method="post">
-             <input name="id" type="hidden" value='{{ id }}'>
-             <button type="submit">Excluir</button>
-           </form>
-        </td>
-    </tr>
-    {% endfor %}
-
+<table border="1" aria-label="Alunos inscritos e seus respectivos minicursos">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Minicurso</th>
+            <th scope="col">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for inscrito in inscritos %}
+        <tr>
+            <td>{{ inscrito.nome }}</td>
+            <td>{{ inscrito.minicurso_nome }}</td>
+            <td>
+                <form action="/excluir" method="post" style="display:inline;">
+                    <input name="id" type="hidden" value='{{ inscrito.id }}'>
+                    <button type="submit"
+                        onclick="return confirm('Tem certeza que deseja excluir a inscrição de {{ inscrito.nome }}?')">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 
-<a href="/">Voltar</a>
+<br>
+<a href="/">Voltar ao Formulário</a>
 
 {% endblock %}

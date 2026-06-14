@@ -2,25 +2,27 @@
 
 {% block body %}
 
-<form class="formulario" action="/inscrever" method="POST">
- <div class="campo">
-    <label for="nome">Nome</label>
-    <input name="nome" id="nome" type="text" 
-         placeholder="Digite seu nome..." 
-         pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)*$"
-         title="Digite um nome válido (apenas letras e espaços)" >
- </div>
- <div class="campo">
-   <select name="minicurso">
-     <option selected value="">Minicursos</option>
-     {% for minicurso in minicursos %}
-       <option value="{{ minicurso }}">{{ minicurso }}</option>
-     {% endfor %}
-   </select>
+<form class="formulario" action="/inscrever" method="POST" aria-label="Formulário de Inscrição em Minicursos">
+  <div class="campo">
+    <label for="nome">Nome Completo</label>
+    <input name="nome" id="nome" type="text" placeholder="Digite seu nome..."
+      pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)*$" title="Digite um nome válido (apenas letras e espaços)"
+      required aria-required="true">
   </div>
- <div class="campo">  
-   <button type="submit">Inscrever</button>
- </div>
+
+  <div class="campo">
+    <label for="minicurso_id">Minicursos Disponíveis</label>
+    <select name="minicurso_id" id="minicurso_id" required aria-required="true">
+      <option value="" disabled selected>Selecione um minicurso...</option>
+      {% for curso in minicursos %}
+      <option value="{{ curso.id }}">{{ curso.nome }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="campo">
+    <button type="submit">Inscrever</button>
+  </div>
 </form>
 
 {% endblock %}

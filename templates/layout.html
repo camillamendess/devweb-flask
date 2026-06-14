@@ -1,33 +1,40 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-<title>Semana de Computação</title>
-<link rel="stylesheet"
-          href="{{ url_for('static', filename='css/estilo.css') }}">
+   <meta charset="UTF-8">
+   <title>Semana de Computação</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
 </head>
 
 <body>
 
-<div class="container">
+   <div class="container">
 
-<header>
- <img src="{{ url_for('static', filename='images/logo.png') }}" width="90">
- <h1>Semana de Computação 2026</h1>
-</header>
+      <header>
+         <img src="{{ url_for('static', filename='images/logo.png') }}" width="90"
+            alt="Logo oficial da Semana de Computação">
+         <h1>Semana de Computação 2026</h1>
+      </header>
 
-<section>
-   {% block body %}
-   {% endblock %}
-</section>
+      <nav class="menu-navegacao" aria-label="Menu principal do sistema">
+         <a href="/" class="link-menu">Formulário de Inscrição</a> |
+         <a href="/inscritos" class="link-menu">Ver Alunos Inscritos</a> |
+         <a href="/minicursos" class="link-menu">⚙️ Gerenciar Minicursos</a>
+      </nav>
 
-<footer>
- <p>2026 Semana de Computação</p>
- <p>Email: contato@evento.com</p>
- <p>Desenvolvido por alunos do curso</p>
-</footer>
+      <section>
+         {% block body %}
+         {% endblock %}
+      </section>
 
-</div>
+      <footer>
+         <p>2026 Semana de Computação</p>
+         <p>Email: contato@evento.com</p>
+         <p>Desenvolvido por alunos do curso</p>
+      </footer>
+
+   </div>
 </body>
+
 </html>

@@ -2,10 +2,11 @@
 
 {% block body %}
 
-<h2>Inscrição inválida!</h2>
+<div role="alert" aria-live="assertive">
+  <h2 style="color: #e11d48;">Não foi possível concluir a inscrição</h2>
+  <p><strong>Motivo:</strong> {{ mensagem }} </p>
+</div>
 
-<p> {{ mensagem }} </p>
-
-<a href="/">Voltar</a>
+<a href="/">Voltar e tentar novamente</a>
 
 {% endblock %}
