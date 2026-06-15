@@ -5,6 +5,7 @@ DATABASE_NAME = "inscritos.db"
 
 def get_connection():
     conn = sqlite3.connect(DATABASE_NAME)
+    conn.execute("PRAGMA foreign_keys = ON;") # Força o SQLite a respeitar as regras de integridade e cascata
     conn.row_factory = sqlite3.Row  # Permite acessar colunas pelo nome!
     return conn
 
@@ -23,7 +24,7 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT NOT NULL,
             minicurso_id INTEGER,
-            FOREIGN KEY(minicurso_id) REFERENCES minicursos(id)
+            FOREIGN KEY(minicurso_id) REFERENCES minicursos(id) ON DELETE CASCADE
         )
     """)
     
