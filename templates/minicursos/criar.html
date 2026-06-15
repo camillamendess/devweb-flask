@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h2>Cadastrar Novo Minicurso</h2>
+
+<form class="formulario" action="/minicursos/criar" method="POST" aria-label="Formulário de cadastro de minicurso">
+  <div class="campo">
+    <label for="nome">Nome do Minicurso:</label>
+    <input type="text" id="nome" name="nome" placeholder="Ex: Inteligência Artificial" required aria-required="true">
+  </div>
+
+  <div class="campo">
+    <button type="submit">Salvar Minicurso</button>
+  </div>
+</form>
+
+<div class="button-container">
+  <button><a href="/minicursos">Cancelar e Voltar</a></button>
+</div>
+
+{% endblock %}

@@ -12,16 +12,17 @@
    <div class="container">
 
       <header>
-         <img src="{{ url_for('static', filename='images/logo.png') }}" width="90"
-            alt="Logo oficial da Semana de Computação">
+         <div class="header-container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" width="90"
+               alt="Logo oficial da Semana de Computação">
+            <nav class="menu-navegacao" aria-label="Menu principal do sistema">
+               <a href="/inscritos" class="link-menu">Ver Alunos Inscritos</a>
+               <a href="/minicursos" class="link-menu">Gerenciar Minicursos</a>
+            </nav>
+         </div>
          <h1>Semana de Computação 2026</h1>
       </header>
 
-      <nav class="menu-navegacao" aria-label="Menu principal do sistema">
-         <a href="/" class="link-menu">Formulário de Inscrição</a> |
-         <a href="/inscritos" class="link-menu">Ver Alunos Inscritos</a> |
-         <a href="/minicursos" class="link-menu">⚙️ Gerenciar Minicursos</a>
-      </nav>
 
       <section>
          {% block body %}

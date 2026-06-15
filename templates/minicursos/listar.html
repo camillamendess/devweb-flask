@@ -1,39 +1,33 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+{% extends "layout.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <title>Gerenciar Minicursos</title>
-</head>
+{% block body %}
+<h2>Painel de Minicursos</h2>
 
-<body>
-  <h1>Painel de Minicursos</h1>
-  <a href="/minicursos/criar">➕ Adicionar Novo Minicurso</a> | <a href="/">Voltar ao Início</a>
-  <br><br>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome do Curso</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for curso in minicursos %}
-      <tr>
-        <td>{{ curso.id }}</td>
-        <td>{{ curso.nome }}</td>
-        <td>
-          <a href="/minicursos/editar/{{ curso.id }}">Editar</a>
-          <form action="/minicursos/excluir" method="POST" style="display:inline;">
-            <input type="hidden" name="id" value="{{ curso.id }}">
-            <button type="submit" onclick="return confirm('Deseja mesmo excluir este curso?')">Excluir</button>
-          </form>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</body>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nome do Curso</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for curso in minicursos %}
+    <tr>
+      <td>{{ curso.nome }}</td>
+      <td>
+        <button><a href="/minicursos/editar/{{ curso.id }}">Editar</a></button>
+        <form action="/minicursos/excluir" method="POST" style="display:inline;">
+          <input type="hidden" name="id" value="{{ curso.id }}">
+          <button type="submit" onclick="return confirm('Deseja mesmo excluir este curso?')">Excluir</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-</html>
+<div class="button-container">
+  <button><a href="/minicursos/criar">Adicionar Novo Minicurso</a></button>
+  <button><a href="/">Voltar ao Início</a></button>
+</div>
+{% endblock %}

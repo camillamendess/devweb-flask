@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h2>Editar Nome do Minicurso</h2>
+<p>Altere o título do minicurso abaixo. Essa mudança vai refletir imediatamente no formulário de inscrição.</p>
+
+<form class="formulario" action="/minicursos/editar/{{ minicurso.id }}" method="POST"
+  aria-label="Formulário de edição de minicurso">
+
+  <div class="campo">
+    <label for="nome">Nome do Minicurso:</label>
+    <input type="text" id="nome" name="nome" value="{{ minicurso.nome }}" required aria-required="true"
+      placeholder="Ex: Inteligência Artificial">
+  </div>
+
+  <div class="campo">
+    <button type="submit">Atualizar Minicurso</button>
+  </div>
+</form>
+
+<div class="button-container">
+  <button><a href="/minicursos">Cancelar e Voltar</a></button>
+</div>
+
+{% endblock %}
