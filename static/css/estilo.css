@@ -1,3 +1,9 @@
+/* =============================================
+   Estilos globais da Semana de Computação
+   Aplica reset, tipografia e estrutura base
+   ============================================= */
+
+/* Estilo base do body: define fonte padrão, remove margens e aplica cor de fundo cinza claro */
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -5,6 +11,7 @@ body {
   min-height: 100vh;
 }
 
+/* Cabeçalho global: fundo azul, texto branco e distribuição horizontal entre logo e navegação */
 header {
   display: flex;
   justify-content: space-between;
@@ -14,11 +21,17 @@ header {
   padding: 15px 30px;
 }
 
+/* Remove sublinhado e herda a cor do elemento pai em todos os links */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+/* =============================================
+   Layout principal
+   ============================================= */
+
+/* Container principal: empilha os elementos verticalmente e ocupa a altura total da tela */
 .container {
   display: flex;
   flex-direction: column;
@@ -27,26 +40,31 @@ a {
   min-height: 100vh;
 }
 
+/* Wrapper do cabeçalho: alinha logo e menu lado a lado com espaçamento entre eles */
 .header-container {
   display: flex;
   gap: 30px;
   align-items: center;
 }
 
+/* Menu de navegação: exibe os links do header lado a lado com espaçamento uniforme */
 .menu-navegacao {
   display: flex;
   gap: 20px;
 }
 
+/* Links do menu: texto branco e negrito para contraste com o fundo azul do header */
 .menu-navegacao a {
   color: #fff;
   font-weight: bold;
 }
 
+/* Estado hover dos links do menu: sublinhado para indicar interatividade */
 .menu-navegacao a:hover {
   text-decoration: underline;
 }
 
+/* Container de botões: centraliza os botões horizontalmente com espaçamento entre eles */
 .button-container {
   margin-top: 20px;
   display: flex;
@@ -55,11 +73,13 @@ a {
   align-content: center;
 }
 
+/* Seção de conteúdo: ocupa o espaço restante da tela, empurrando o footer para baixo */
 section {
   flex: 1;
   width: 100%;
 }
 
+/* Rodapé global: fundo escuro, texto branco centralizado e colado ao final da página */
 footer {
   background: #222;
   color: white;
@@ -68,26 +88,38 @@ footer {
   margin-top: auto;
 }
 
+/* =============================================
+   Tabela
+   ============================================= */
+
+/* Tabela: largura total, sem espaço entre bordas e colunas de tamanho fixo */
 table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
 }
 
+/* Células da tabela: padding uniforme, texto centralizado e truncamento de conteúdo longo com reticências */
 th,
 td {
   padding: 10px;
   text-align: center;
   width: 33.33%;
-  overflow: hidden; /* evita texto estourar */
-  text-overflow: ellipsis; /* coloca "..." se o texto for longo */
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+/* Estado hover das linhas: destaca a linha com fundo azul claro ao passar o cursor */
 tr:hover {
   background-color: #d6e4ff;
 }
 
+/* =============================================
+   Botões
+   ============================================= */
+
+/* Botão padrão: fundo azul semitransparente, texto branco, bordas arredondadas e cursor de clique */
 button {
   padding: 12px;
   background: #0d6dfdd0;
@@ -97,15 +129,22 @@ button {
   cursor: pointer;
 }
 
+/* Estado hover do botão: escurece o fundo para indicar interatividade */
 button:hover {
   background: #0b5dd7ed;
 }
 
+/* Títulos e parágrafos: centralizados por padrão em toda a aplicação */
 h2,
 p {
   text-align: center;
 }
 
+/* =============================================
+   Formulários
+   ============================================= */
+
+/* Formulário padrão: empilha os campos verticalmente, centralizado e com fundo branco e bordas arredondadas */
 .formulario {
   display: flex;
   flex-direction: column;
@@ -119,12 +158,14 @@ p {
   border-radius: 10px;
 }
 
+/* Campo individual: empilha label e input verticalmente com espaçamento entre eles */
 .campo {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
+/* Inputs e selects dos campos: padding generoso e borda suave arredondada */
 .campo input,
 .campo select {
   padding: 12px;
@@ -132,13 +173,12 @@ p {
   border-radius: 5px;
 }
 
+/* Select personalizado: remove a seta padrão do navegador e substitui por uma seta SVG customizada posicionada à direita */
 select {
-  /* Remove a seta padrão feia do navegador */
-  -webkit-appearance: none; /* Para Safari e Chrome antigo */
-  -moz-appearance: none; /* Para Firefox antigo */
-  appearance: none; /* Padrão moderno */
-
-  /* Adiciona uma nova setinha personalizada via SVG embutido */
+  -webkit-appearance: none; /* Remove seta padrão no Safari e Chrome antigo */
+  -moz-appearance: none; /* Remove seta padrão no Firefox antigo */
+  appearance: none; /* Remove seta padrão nos navegadores modernos */
+  /* Seta personalizada via SVG embutido posicionada à direita do campo */
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
   background-repeat: no-repeat;
   background-position: right 12px center;

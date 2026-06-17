@@ -7,14 +7,19 @@
    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
 </head>
 
+<!-- Template base da aplicação - define a estrutura comum a todas as páginas, incluindo cabeçalho, navegação, área de conteúdo e rodapé -->
+
 <body>
 
    <div class="container">
 
+      <!-- Cabeçalho global: exibe o logo do evento e o menu de navegação principal -->
       <header>
          <div class="header-container">
+            <!-- Logo oficial do evento -->
             <img src="{{ url_for('static', filename='images/logo.png') }}" width="90"
                alt="Logo oficial da Semana de Computação">
+            <!-- Menu de navegação: links para a listagem de inscritos e o gerenciamento de minicursos -->
             <nav class="menu-navegacao" aria-label="Menu principal do sistema">
                <a href="/inscritos" class="link-menu">Ver Alunos Inscritos</a>
                <a href="/minicursos" class="link-menu">Gerenciar Minicursos</a>
@@ -23,12 +28,13 @@
          <h1>Semana de Computação 2026</h1>
       </header>
 
-
+      <!-- Área de conteúdo dinâmico: substituída pelo bloco body de cada template filho via Jinja2 -->
       <section>
          {% block body %}
          {% endblock %}
       </section>
 
+      <!-- Rodapé global: exibe informações de contato e créditos do evento -->
       <footer>
          <p>2026 Semana de Computação</p>
          <p>Email: contato@evento.com</p>

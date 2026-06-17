@@ -2,9 +2,11 @@
 
 {% block body %}
 
+<!-- Formulário de cadastro: envia o nome do novo minicurso via POST para o MinicursoController salvar no banco -->
 <h2>Cadastrar Novo Minicurso</h2>
 
 <form class="formulario" action="/minicursos/criar" method="POST" aria-label="Formulário de cadastro de minicurso">
+  <!-- Campo de nome: único campo obrigatório para criação do minicurso -->
   <div class="campo">
     <label for="nome">Nome do Minicurso:</label>
     <input type="text" id="nome" name="nome" placeholder="Ex: Inteligência Artificial" required aria-required="true">
@@ -15,8 +17,9 @@
   </div>
 </form>
 
+<!-- Link de cancelamento: retorna para a listagem de minicursos sem salvar -->
 <div class="button-container">
-  <button><a href="/minicursos">Cancelar e Voltar</a></button>
+  <button href="/minicursos"><a>Cancelar e Voltar</a></button>
 </div>
 
 {% endblock %}

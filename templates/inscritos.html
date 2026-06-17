@@ -1,7 +1,9 @@
+<!-- Template de listagem de inscritos - estende o layout base e exibe todos os alunos inscritos com a opção de excluir cada um -->
 {% extends "layout.html" %}
 
 {% block body %}
 
+<!-- Tabela de inscritos: itera sobre a lista recebida do InscritoController e exibe nome, minicurso e ação por linha -->
 <h2>Lista de Alunos Inscritos</h2>
 
 <table border="1" aria-label="Alunos inscritos e seus respectivos minicursos">
@@ -16,7 +18,9 @@
         {% for inscrito in inscritos %}
         <tr>
             <td>{{ inscrito.nome }}</td>
+            <!-- Nome do minicurso obtido via JOIN no InscritoDAO, evitando consultas adicionais -->
             <td>{{ inscrito.minicurso_nome }}</td>
+            <!-- Formulário de exclusão: envia o ID do inscrito via POST e exige confirmação do usuário antes de deletar -->
             <td>
                 <form action="/excluir" method="post" style="display:inline;">
                     <input name="id" type="hidden" value='{{ inscrito.id }}'>
@@ -30,6 +34,7 @@
 </table>
 
 <br>
-<div class="button-container"><button><a href="/">Voltar ao Formulário</a></button></div>
+<!-- Link de retorno ao formulário principal de inscrição -->
+<div class="button-container"><button href="/"><a>Voltar ao Formulário</a></button></div>
 
 {% endblock %}

@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
+<!-- Tabela de minicursos: itera sobre a lista recebida do MinicursoController e exibe nome e ações disponíveis por linha -->
 <h2>Painel de Minicursos</h2>
 
 <table border="1">
@@ -15,7 +17,9 @@
     <tr>
       <td>{{ curso.nome }}</td>
       <td>
+        <!-- Link de edição: redireciona para o formulário de edição do minicurso identificado pelo ID -->
         <button><a href="/minicursos/editar/{{ curso.id }}">Editar</a></button>
+        <!-- Formulário de exclusão: envia o ID do minicurso via POST e exige confirmação do usuário antes de deletar -->
         <form action="/minicursos/excluir" method="POST" style="display:inline;">
           <input type="hidden" name="id" value="{{ curso.id }}">
           <button type="submit" onclick="return confirm('Deseja mesmo excluir este curso?')">Excluir</button>
@@ -26,8 +30,10 @@
   </tbody>
 </table>
 
+<!-- Botões de navegação: acesso ao formulário de criação de novo minicurso e retorno à página inicial -->
 <div class="button-container">
-  <button><a href="/minicursos/criar">Adicionar Novo Minicurso</a></button>
-  <button><a href="/">Voltar ao Início</a></button>
+  <button href="/minicursos/criar"><a>Adicionar Novo Minicurso</a></button>
+  <button href="/"><a>Voltar ao Início</a></button>
 </div>
+
 {% endblock %}

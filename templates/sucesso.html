@@ -2,12 +2,14 @@
 
 {% block body %}
 
+<!-- Mensagem de sucesso: notifica o usuário que sua inscrição foi processada e salva corretamente -->
 <div role="status" aria-live="polite">
   <h2 style="color: #4caf50;">Inscrição realizada com sucesso!</h2>
 </div>
 <br>
+<!-- Link de navegação: redireciona para a listagem de todos os alunos inscritos -->
 <div class="button-container">
-  <button><a href="/inscritos">Ver todos os alunos inscritos</a></button>
+  <button href="/inscritos"><a>Ver todos os alunos inscritos</a></button>
 </div>
 
 {% endblock %}

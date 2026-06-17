@@ -1,8 +1,13 @@
+<!-- Template de inscrição - estende o layout base e exibe o formulário para inscrição em um minicurso disponível -->
 {% extends "layout.html" %}
 
 {% block body %}
+
+<!-- Formulário de inscrição: envia nome e ID do minicurso selecionado via POST para o InscritoController processar -->
 <h2>Inscrição em Minicursos</h2>
 <form class="formulario" action="/inscrever" method="POST" aria-label="Formulário de Inscrição em Minicursos">
+
+  <!-- Campo de nome: valida via regex que o valor contém apenas letras e espaços -->
   <div class="campo">
     <label for="nome">Nome Completo</label>
     <input name="nome" id="nome" type="text" placeholder="Digite seu nome..."
@@ -10,6 +15,7 @@
       required aria-required="true">
   </div>
 
+  <!-- Select de minicursos: preenchido dinamicamente com os minicursos recebidos do MinicursoController -->
   <div class="campo">
     <label for="minicurso_id">Minicursos Disponíveis</label>
     <select name="minicurso_id" id="minicurso_id" required aria-required="true">
